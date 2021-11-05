@@ -15,17 +15,18 @@ func convert(s string, numRows int) string {
 
 	var mat [][]byte
 
-	i := 0
-
 	column := make([]byte, numRows)
+
+	i := 0
 
 start:
 	for i < inLength {
-		for x := 0; x < numRows; x++ {
+		for row := 0; row < numRows; row++ {
 			if i < inLength {
-				column[x] = inBytes[i]
+				column[row] = inBytes[i]
 			} else {
 				mat = append(mat, column)
+
 				break start
 			}
 
@@ -40,6 +41,7 @@ start:
 				column[x] = inBytes[i]
 			} else {
 				mat = append(mat, column)
+
 				break start
 			}
 
@@ -57,6 +59,7 @@ start:
 	for row := 0; row < numRows; row++ {
 		for col := 0; col < matDepth; col++ {
 			symbol := mat[col][row]
+
 			if symbol != 0 {
 				res = append(res, symbol)
 			}
