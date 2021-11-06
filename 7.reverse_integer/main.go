@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println(reverse(2147483649))
+	fmt.Println(reverse(214748364))
 }
 
 func reverse(x int) int {
