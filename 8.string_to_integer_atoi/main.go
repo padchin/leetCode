@@ -51,6 +51,7 @@ func myAtoi(s string) int {
 	// читаем оставшуюся строку до первого нецифрового символа или до конца ввода
 	endPosition := 0
 	found := false
+
 	for i, v := range filtered {
 		endPosition = i
 
@@ -70,11 +71,11 @@ func myAtoi(s string) int {
 
 	i, err := strconv.Atoi(string(filtered))
 
-	if err != nil && minus { // todo костыль
-		return -2147483648
-	}
-
 	if err != nil {
+		if minus { // FIXME костыль
+			return -2147483648
+		}
+
 		return 2147483647
 	}
 
