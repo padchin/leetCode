@@ -63,7 +63,6 @@ func isMatch(s string, p string) bool {
 
 	for i := 1; i <= inLen; i++ {
 		for j := 1; j <= patLen; j++ {
-
 			if pat[j-1] == text[i-1] || pat[j-1] == '.' {
 				T[i][j] = T[i-1][j-1]
 
