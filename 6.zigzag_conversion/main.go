@@ -9,7 +9,6 @@ func main() {
 }
 
 func convert(s string, numRows int) string {
-
 	inLength := len(s) // допустимо только для ASCII
 	inBytes := []byte(s)
 
@@ -36,7 +35,7 @@ start:
 		mat = append(mat, column)
 		column = make([]byte, numRows)
 
-		for x := numRows - 2; x > 0; x-- {
+		for x := numRows - 2; x > 0; x-- { //nolint:gomnd
 			if i < inLength {
 				column[x] = inBytes[i]
 			} else {

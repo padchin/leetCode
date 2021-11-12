@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println(isPalindrome(0))
+	fmt.Println(isPalindrome(2323))
 }
 
 func isPalindrome(x int) bool {
@@ -28,7 +28,7 @@ func isPalindrome(x int) bool {
 	buffer := make([]int, n)
 
 	for t := n - 1; t >= 0; t-- {
-		d := fastPower(10, t)
+		d := int(math.Pow10(t))
 		z := x / d
 
 		buffer[n-t-1] = z
@@ -44,18 +44,4 @@ func isPalindrome(x int) bool {
 	}
 
 	return reflect.DeepEqual(s, buffer)
-}
-
-// fastPower возвращает x в степени y
-func fastPower(x, y int) int {
-	switch {
-	case y == 0:
-		return 1
-	case y == 1:
-		return x
-	case y%2 == 0:
-		return fastPower(x*x, y/2)
-	default:
-		return x * fastPower(x*x, (y-1)/2)
-	}
 }
