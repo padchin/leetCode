@@ -57,6 +57,7 @@ func myAtoi(s string) int {
 
 		if v < '0' || v > '9' {
 			found = true
+
 			break
 		}
 	}

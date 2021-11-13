@@ -16,14 +16,17 @@ func maxArea(height []int) int {
 
 	for l < r {
 		if height[l] < height[r] {
-			if max < height[l]*(r-l) {
-				max = height[l] * (r - l)
+			v := height[l] * (r - l)
+
+			if max < v {
+				max = v
 			}
 
 			l++
 		} else {
-			if max < height[r]*(r-l) {
-				max = height[r] * (r - l)
+			v := height[r] * (r - l)
+			if max < v {
+				max = v
 			}
 
 			r--
