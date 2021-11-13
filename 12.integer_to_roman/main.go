@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println(intToRoman(1994))
+	fmt.Println(intToRoman(1979))
 }
 
 func intToRoman(num int) string {
@@ -47,6 +47,7 @@ func intToRoman(num int) string {
 			s += L[i][0] + L[i][1]
 		case d >= 5:
 			s += L[i][1]
+
 			for j := 0; j < d-5; j++ {
 				s += L[i][0]
 			}
