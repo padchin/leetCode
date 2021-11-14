@@ -34,7 +34,6 @@ start:
 			if ss[i] != strs[shortestPosition][i] {
 				break start
 			}
-
 		}
 
 		c++
