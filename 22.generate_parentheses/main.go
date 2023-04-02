@@ -2,17 +2,12 @@ package main
 
 import (
 	"errors"
-	"fmt"
 	"math/bits"
 )
 
 var IllegalPatternErr = errors.New("illegal pattern")
 
-func main() {
-	fmt.Println(generateParenthesis(1))
-}
-
-func generateParenthesis(size int) []string {
+func generateParenthesisBits(size int) []string {
 	if size == 0 {
 		return []string{""}
 	}
@@ -86,4 +81,31 @@ func stringFromBits(num int, size int) (string, error) {
 	}
 
 	return string(buffer), nil
+}
+
+// Функция generateParenthesis создает и возвращает массив со всеми возможными правильными скобочными последовательностями длины 2*n
+func generateParenthesisRecursion(size int) []string {
+	// Создаем пустой массив строк для хранения правильных скобочных последовательностей
+	var ans []string
+	// Вызываем функцию backtrack, чтобы заполнить массив ans
+	backtrack(&ans, "", 0, 0, size)
+	// Возвращаем массив правильных скобочных последовательностей
+	return ans
+}
+
+// Функция backtrack генерирует правильные скобочные последовательности рекурсивно
+func backtrack(ans *[]string, cur string, open, close, max int) {
+	// Если длина текущей последовательности равна 2*n, то добавляем ее в массив ans
+	if len(cur) == max*2 {
+		*ans = append(*ans, cur)
+		return
+	}
+	// Если количество открывающих скобок меньше n, то добавляем открывающую скобку и вызываем backtrack рекурсивно
+	if open < max {
+		backtrack(ans, cur+"(", open+1, close, max)
+	}
+	// Если количество закрывающих скобок меньше количества открывающих скобок, то добавляем закрывающую скобку и вызываем backtrack рекурсивно
+	if close < open {
+		backtrack(ans, cur+")", open, close+1, max)
+	}
 }

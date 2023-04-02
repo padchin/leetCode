@@ -35,7 +35,7 @@ start:
 		mat = append(mat, column)
 		column = make([]byte, numRows)
 
-		for x := numRows - 2; x > 0; x-- { //nolint:gomnd
+		for x := numRows - 2; x > 0; x-- {
 			if i < inLength {
 				column[x] = inBytes[i]
 			} else {

@@ -13,26 +13,26 @@ func longestCommonPrefix(strs []string) string {
 
 	// find the shortest string
 	shortestPosition := 0
-	ShortestLength := len(strs[shortestPosition])
+	shortestLength := len(strs[shortestPosition])
 
 	for i, v := range strs {
-		if ShortestLength > len(v) {
-			ShortestLength = len(v)
+		if shortestLength > len(v) {
+			shortestLength = len(v)
 			shortestPosition = i
 		}
 	}
 
 	c := 0
 
-start:
-	for i := 0; i < ShortestLength; i++ {
+entry:
+	for i := 0; i < shortestLength; i++ {
 		for j, ss := range strs {
 			if j == shortestPosition {
 				continue
 			}
 
 			if ss[i] != strs[shortestPosition][i] {
-				break start
+				break entry
 			}
 		}
 
